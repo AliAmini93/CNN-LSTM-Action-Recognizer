@@ -199,4 +199,6 @@ While the current project establishes a solid foundation for video classificatio
 
 - **Augmentation Techniques**: Implement data augmentation techniques to increase the diversity of the training dataset, which can lead to better generalization and robustness of the model.
 
+## Acknowledgements
 
+A heartfelt thank you to [Sayak Paul](https://twitter.com/RisingSayak) for his invaluable contribution and insight.
