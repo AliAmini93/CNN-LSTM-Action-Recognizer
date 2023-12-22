@@ -81,7 +81,7 @@ The function reads the video, applies center cropping to each frame, resizes the
 
 ## Feature Extraction Using Pre-Trained Models
 
-To extract features from the frames of each video, leveraging a pre-trained network is a highly effective approach. The [`Keras Applications`](https://keras.io/api/applications/) module offers several state-of-the-art models pre-trained on the ImageNet-1k dataset. For this project, we specifically utilize the [InceptionV3 model](https://arxiv.org/abs/1512.00567), known for its efficiency and accuracy in image classification tasks.
+To extract features from the frames of each video, leveraging a pre-trained network is a highly effective approach. The [`Keras Applications`](https://keras.io/api/applications/) module offers several state-of-the-art models pre-trained on the ImageNet-1k dataset. For this project, we specifically utilize the [InceptionV3](https://arxiv.org/abs/1512.00567), and [EfficientNetB7](https://arxiv.org/pdf/1905.11946.pdf) known for their efficiency and accuracy in image classification tasks.
 
 ### InceptionV3 & EfficientNetB7 for Feature Extraction
 
@@ -93,6 +93,7 @@ This function builds a feature extraction model using the InceptionV3 and Effici
 
 - Returns: A Keras model specifically designed for feature extraction.
 
+This setup results in a robust feature extraction model that can be applied to each frame of the videos.
 
 
 
