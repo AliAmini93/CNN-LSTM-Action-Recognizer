@@ -79,9 +79,21 @@ Processes and extracts frames from a video.
 
 The function reads the video, applies center cropping to each frame, resizes them, and reorders color channels. It then returns the processed frames as an array, adhering to the specified maximum frame count.
 
----
+## Feature Extraction Using Pre-Trained Models
 
-These functions form the core of video preprocessing in the project, preparing the data for subsequent model training and ensuring consistency in input dimensions and format.
+To extract features from the frames of each video, leveraging a pre-trained network is a highly effective approach. The [`Keras Applications`](https://keras.io/api/applications/) module offers several state-of-the-art models pre-trained on the ImageNet-1k dataset. For this project, we specifically utilize the [InceptionV3 model](https://arxiv.org/abs/1512.00567), known for its efficiency and accuracy in image classification tasks.
+
+### InceptionV3 & EfficientNetB7 for Feature Extraction
+
+The InceptionV3 and EfficientNetB7 models, pre-trained on ImageNet, are utilized to extract features from the video frames.
+
+#### Function: `create_feature_extraction_model()`
+
+This function builds a feature extraction model using the InceptionV3 and EfficientNetB7 architectures.
+
+- Returns: A Keras model specifically designed for feature extraction.
+
+
 
 
 
