@@ -169,5 +169,34 @@ Converts a sequence of video frames into a GIF.
 - Returns: IPython Image display object of the created GIF.
 
 This utility function is useful for visualizing the video frames in a more engaging and understandable format.
+## Next Steps and Future Work
+
+While the current project establishes a solid foundation for video classification, there are several avenues for future enhancements and experiments to further improve performance and adaptability.
+
+### Fine-Tuning Pre-Trained Networks
+
+- **Fine-Tuning**: Experiment with fine-tuning the pre-trained CNN-based networks (like InceptionV3 or EfficientNetB7) used for feature extraction. Adjusting these networks specifically for your dataset can potentially improve results.
+
+### Exploring Model Variants
+
+- **Speed-Accuracy Trade-offs**: Investigate other models within `keras.applications` to balance speed and accuracy. Each model offers different benefits and compromises.
+
+- **Sequence Length Variations**: Experiment with different values for `MAX_SEQ_LENGTH`. Observe how altering the maximum sequence length affects performance.
+
+- **Training on More Classes**: Expand the number of classes in the training dataset to challenge the model's ability to generalize and handle more diverse data.
+
+### Advanced Techniques and Models
+
+- **Pre-Trained Action Recognition Models**: Utilize [pre-trained action recognition models](https://arxiv.org/abs/1705.07750) like those from DeepMind, as detailed in [this TensorFlow tutorial](https://www.tensorflow.org/hub/tutorials/action_recognition_with_tf_hub).
+
+- **Rolling-Averaging Technique**: Implement rolling-averaging with standard image classification models for video classification. [This tutorial](https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/) provides insights into using this technique.
+
+- **Self-Attention for Frame Importance**: In scenarios with significant variations between frames, incorporating a [self-attention layer](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Attention) in the sequence model can help focus on the most relevant frames for classification.
+
+- **Transformers for Video Processing**: Explore the implementation of Transformers-based models for processing videos, as explained in [this book chapter](https://livebook.manning.com/book/deep-learning-with-python-second-edition/chapter-11). Transformers can offer significant advantages in understanding the complex temporal dynamics in videos.
+
+### Data Augmentation
+
+- **Augmentation Techniques**: Implement data augmentation techniques to increase the diversity of the training dataset, which can lead to better generalization and robustness of the model.
 
 
