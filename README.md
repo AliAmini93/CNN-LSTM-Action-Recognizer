@@ -1,6 +1,6 @@
 # Recuurent Convolutional Action Recognizer
 
-This project focuses on building a video classifier using the UCF101 dataset, a comprehensive collection of videos categorized into various actions like cricket shots, punching, biking, etc
+This project focuses on building a video classifier using the UCF101 dataset, a comprehensive collection of videos categorized into various actions like cricket shots, punching, biking, etc.
 
 ## Conceptual Foundations
 
