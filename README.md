@@ -95,7 +95,43 @@ This function builds a feature extraction model using the InceptionV3 and Effici
 
 This setup results in a robust feature extraction model that can be applied to each frame of the videos.
 
+An important step in preparing the dataset for training involves converting the string labels of each video into numeric indices. This conversion enables the model to process and learn from these labels effectively.
 
+### Creating a Label Processor
+
+We implement a label processor using Keras' `StringLookup` layer, which converts string labels into their corresponding numeric indices.
+
+#### Functionality of `StringLookup`
+
+- `num_oov_indices`: Set to 0, indicating the number of out-of-vocabulary indices.
+- `vocabulary`: The unique tags obtained from the training data. This creates a consistent mapping from string labels to numeric indices.
+
+## Preparing Videos: Feature Extraction and Mask Creation
+
+To prepare the videos for the neural network, we need to extract features from each frame and create masks to handle varying video lengths. This process is essential for transforming raw video data into a format suitable for model training.
+
+### Function: `process_videos_and_extract_features(dataframe, directory_path)`
+
+This function prepares all videos in a given dataframe by extracting features and creating masks.
+
+- `dataframe`: Contains information about the videos, like names and labels.
+- `directory_path`: The root directory where the videos are stored.
+
+The function processes each video, extracts frame features using the previously defined feature extraction model, and creates masks to account for videos with frame counts less than the maximum sequence length.
+
+1. **Input Layers**: There are two input layers, one for the frame features and another for the sequence mask.
+
+2. **GRU and LSTM Layers**: The GRU and LSTM layers are designed to process the sequence of frame features, taking into account the sequence mask. This helps the model focus on the relevant parts of the video.
+
+3. **Output Layer**: The final layer is a dense layer with a softmax activation function, corresponding to the number of unique tags (classes) in the dataset.
+
+## Model Training and Evaluation
+
+In this phase, we focus on training the RNN sequence model and evaluating its performance on the test dataset. The process involves using callbacks for efficient training and the preservation of the best-performing model weights.
+
+### Conducting the Experiment
+
+The `conduct_experiment()` function encapsulates the entire process of training and evaluating the model.
 
 
 
