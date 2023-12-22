@@ -11,4 +11,5 @@ This project focuses on building a video classifier using the UCF101 dataset, a 
 ## Technical Prerequisites
 
 * TensorFlow 2.5 or higher is required.
+* A subsampled version of the UCF101 dataset is utilized in this project. The process of subsampling is detailed in [this notebook](https://github.com/AliAmini93/CNN-LSTM-Action-Recognizer/blob/main/UCF101_Data_Preparation_Top5.ipynb), which provides insights into how the dataset was prepared for this specific application.
 
