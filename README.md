@@ -133,6 +133,41 @@ In this phase, we focus on training the RNN sequence model and evaluating its pe
 
 The `conduct_experiment()` function encapsulates the entire process of training and evaluating the model.
 
+## Predicting Video Sequences and Visualization
 
+The final aspect of the project involves predicting actions in videos and visualizing the results. This process includes preparing the video frames for prediction, performing the sequence prediction, and converting the video frames to a GIF for an easy-to-understand visual representation.
+
+### Preparing Video for Prediction
+
+#### Function: `prepare_video_for_prediction(video_frames)`
+
+Prepares a single video's frames for prediction by the sequence model.
+
+- `video_frames`: Frames of the video to be processed.
+- Returns: Processed frame features and frame mask.
+
+The function processes each frame, extracts the features, and creates a mask to handle videos with fewer frames than the maximum sequence length.
+
+### Performing Sequence Prediction
+
+#### Function: `predict_video_sequence(video_path)`
+
+Performs sequence prediction on a given video.
+
+- `video_path`: Path to the video file.
+- Returns: Frames of the video.
+
+The function predicts the probability of each class for the given video and prints the predictions.
+
+### Visualization Utility: Converting Frames to GIF
+
+#### Function: `frames_to_gif(video_frames)`
+
+Converts a sequence of video frames into a GIF.
+
+- `video_frames`: Frames of the video.
+- Returns: IPython Image display object of the created GIF.
+
+This utility function is useful for visualizing the video frames in a more engaging and understandable format.
 
 
