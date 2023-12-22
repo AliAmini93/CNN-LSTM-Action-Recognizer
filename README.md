@@ -42,6 +42,48 @@ Specific parameters are set for image processing, model training, and sequence p
 
 These configuration parameters play a pivotal role in the models' ability to learn from the video data and accurately classify actions, optimizing performance while balancing computational efficiency.
 
+## Video Processing Methodology
+
+One of the primary challenges in training video classifiers is devising a method to efficiently feed videos into a neural network. Various strategies exist, as discussed in [this blog post](https://blog.coast.ai/five-video-classification-methods-implemented-in-keras-and-tensorflow-99cad29cc0b5). Given that a video is essentially an ordered sequence of frames, a straightforward approach might be to extract these frames and form a 3D tensor. However, due to varying frame counts across different videos, this method can be problematic for batching unless padding is used.
+
+### Adopted Approach
+
+In this project, we adopt a method similar to that used in text sequence problems. Our approach involves:
+
+1. Capturing frames from each video.
+2. Extracting frames until a maximum frame count is reached.
+3. Padding videos with fewer frames than the maximum with zeros.
+
+This method is particularly suitable for the UCF101 dataset, where there isn't significant variation in objects and actions across frames. However, it's important to note that this approach might not generalize well to other video classification tasks. We utilize [OpenCV's `VideoCapture()` method](https://docs.opencv.org/master/dd/d43/tutorial_py_video_display.html) for reading frames from videos.
+
+### Implemented Functions
+
+The following functions are adapted from a TensorFlow tutorial on action recognition:
+
+#### `center_crop_frame(input_frame)`
+
+This function crops the center square of a given frame.
+
+- `input_frame`: The frame to be cropped.
+- Returns: Cropped frame.
+
+The function calculates the center of the frame and crops it to form a square, ensuring uniform frame dimensions.
+
+#### `process_video(video_path, max_frame_count, target_size)`
+
+Processes and extracts frames from a video.
+
+- `video_path`: Path to the video file.
+- `max_frame_count`: Maximum number of frames to extract.
+- `target_size`: The dimensions to which each frame is resized.
+
+The function reads the video, applies center cropping to each frame, resizes them, and reorders color channels. It then returns the processed frames as an array, adhering to the specified maximum frame count.
+
+---
+
+These functions form the core of video preprocessing in the project, preparing the data for subsequent model training and ensuring consistency in input dimensions and format.
+
+
 
 
 
